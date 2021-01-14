@@ -7,9 +7,62 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('logo1.png') %>
+    <%# <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css"> %>
+    <%# <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css"> %>
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <%# <link rel="stylesheet" href="assets/css/style.css"> %>
+    <!-- End layout styles -->
+    <%# <link rel="shortcut icon" href="assets/images/favicon.png" /> %>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Eva</a>
+      <% if user_signed_in? %>
+       <a class="navbar-brand text-white" href=''> <%= current_user.name %></a>
+        <ul class="navbar-nav ml-auto"> 
+         
+            
+            <li class="nav-item">
+              <%# <strong><%= link_to 'admin-panel' ,admin_path,  class: ' nav-link text-white'</strong> %> 
+            </li>
+            <li class="nav-item"> 
+                <strong><%= link_to "Logout", destroy_user_session_path, method: :delete, class: ' nav-link text-white'%></strong>
+            </li> 
+            </ul> 
+          <% else %>   
+            <%# <li class="nav-item"> 
+                <strong><%= link_to "Sign up", new_user_registration_path ,class: 'nav-link text-white ', :style =>'font-size=36px;' %><%# </strong><br />
+            </li>  %>
+            <li class="nav-item">
+              <%# <strong><%= link_to 'New Student', new_student_path ,class: 'nav-link text-white'</strong> %>
+            </li> 
+            <li class="nav-item">
+              
+            </li>
+            <li class="nav-item"> 
+              <strong><%= link_to "log in", new_user_session_path, class: 'nav-link text-white float-right ml-auto'%></strong>
+            </li> 
+        
+        </ul> 
+         <% end %>   
+    </nav>  
+
+
+
+
+    <div class='container'>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+    
   </body>
 </html>

@@ -1,0 +1,10 @@
+<div>
+ <h3>users</h3>
+<% @users.each do |user|%>
+   <% if user.id != current_user.id %>
+     <%= user.name%> 
+     <%= link_to 'show', user_path(user)%>
+     <br/>
+    <% end %>  
+<% end %>
+</div>
