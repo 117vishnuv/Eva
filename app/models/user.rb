@@ -7,7 +7,11 @@ class User < ApplicationRecord
   #to create reverse as above 2
   has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
   has_many :followers, through: :following_users
+  
 
+  #uploading profile images
+  mount_uploader :profile_image, ProfileImageUploader
+  # validates_presence_of :profile_image
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
