@@ -1,18 +1,19 @@
-<div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="container-scroller">  
+     <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth">
           <div class="row flex-grow">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
-                <div class="brand-logo">
-                  <%# <img src="/assets/images/logo1.jpg"> %>
+                <div class="brand-logo ">
+                  <%= image_tag ("eva-logo.png") %>
                   <%# Eva %>
-                  <h2 style='color:#b66dff'>Eva</h2>
+                  <%# <h2 style='color:#b66dff'>Eva</h2> %>
                 </div>
                 
                 <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
                 <%# <form class="pt-3"> %>
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'pt-3') do |f| %>
 
                   <div class="form-group">
                     <%# <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username"> %>
@@ -27,10 +28,17 @@
                     <%= f.submit "Log in", class: "btn btn-block btn-gradient-success btn-lg font-weight-medium " %>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
-                    <%# <div class="form-check">
-                      <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> Keep me signed in </label>
-                    </div> %>
+                    <% if devise_mapping.rememberable? %>
+                    <div class="form-check"> 
+                      <%# <label class="form-check-label text-muted"> %>
+                      <%# <label for="user_remember_me" class="form-check-label text-muted"> %>
+                        <%# <input type="checkbox" class="form-check-input"> %>
+                        <%# <input name="user[remember_me]" type="hidden" value="0" /> %>
+                        <%# <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" class="form-check-input"/> %>
+                         <%# Remember me %>
+                      <%# </label> %>
+                    </div>
+                     <% end %>
                     <%# <a href="#" class="auth-link text-black">Forgot password?</a> %>
                   </div>
                   <%# <div class="mb-2">
@@ -48,5 +56,6 @@
         </div>
         <!-- content-wrapper ends -->
       </div>
+    </div> 
 
 

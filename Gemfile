@@ -38,6 +38,9 @@ gem 'carrierwave'
 gem "rmagick"
 gem "mini_magick"
 
+#iconpack
+gem 'material_design_icons', '~> 4.1', '>= 4.1.95'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
