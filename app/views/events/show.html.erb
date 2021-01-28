@@ -1,24 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+          <i class="mdi mdi-calendar"></i>
+        </span> <%= @event.name %>
+       </h3>
+    </div>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @event.name %>
+    </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
+    <p>
+     <strong>Body:</strong>
+     <%= @event.body %>
+    </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+    <p>
+      <strong>Date:</strong>
+      <%= @event.date %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @event.status %>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <%= @event.location %>
+    </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <p>
+      <strong>Latitude:</strong>
+      <%= @event.latitude %>
+    </p>
+
+    <p>
+      <strong>Longitude:</strong>
+      <%= @event.longitude %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @event.status %>
+    </p>
+     
+    <div>
+    <%# <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/15?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};AA&pp=#{@event.latitude},#{@event.longitude};;AB&pp=#{@event.latitude},#{@event.longitude};22&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3"%>
+    <%# https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/47.619048,-122.35384/15?mapSize=500,500&pp=47.620495,-122.34931;21;AA&pp=47.619385,-122.351485;;AB&pp=47.616295,-122.3556;22&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3  %>
+    <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/11?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};66&mapLayer=Basemap,Buildings&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3"%>
+    </div>
+    
+    <p>
+    <ul>
+    <li><strong>Nearby Events</strong></li>
+      <% for event in @event.nearbys(31) %>
+       <li><%= link_to event.name, event %>, <%= event.location%> (<%= event.distance.round(2)*1.60934 %> km)</li>
+      <% end %>
+    </ul>
+    </p>
+   
+
+
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+
+</div>

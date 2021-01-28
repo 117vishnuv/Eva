@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :combine_location , only: [:create, :update]
 
   # GET /events
   # GET /events.json
@@ -25,7 +26,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -62,13 +62,22 @@ class EventsController < ApplicationController
   end
 
   private
+    
+    #convert location array into string
+    def combine_location
+        params[:event][:location] = params[:event][:location].join(',')
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :body, :date, :status)
+      params.require(:event).permit(:name, :body, :date, :status, :location, :latitude, :longitude)
+      # , :state, :city, :street, :country
     end
 end

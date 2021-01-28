@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("vendors")
+// require("js")
 global.toastr = require("toastr")
 
 
@@ -17,3 +19,18 @@ global.toastr = require("toastr")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import "bootstrap"
+
+//google map
+// require ("gmaps/google")
+
+//purple admin js
+// require("vendors/js/vendor.bundle.base")
+// require("vendors/chart.js/Chart.min")
+// require("js/off-canvas")
+// require("js/hoverable-collapse")
+// require("js/misc")
+// require("js/dashboard")
+// require("js/todolist")
+
+
+// require("vendors")

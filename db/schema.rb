@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_072634) do
+ActiveRecord::Schema.define(version: 2021_01_27_124106) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2021_01_15_072634) do
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.text "location"
   end
 
   create_table "follows", force: :cascade do |t|
