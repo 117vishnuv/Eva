@@ -1,3 +1,4 @@
+<%# <%require_relative '../.bing_api_key.rb'%> %>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="page-header">
@@ -47,7 +48,7 @@
     <div>
     <%# <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/15?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};AA&pp=#{@event.latitude},#{@event.longitude};;AB&pp=#{@event.latitude},#{@event.longitude};22&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3"%>
     <%# https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/47.619048,-122.35384/15?mapSize=500,500&pp=47.620495,-122.34931;21;AA&pp=47.619385,-122.351485;;AB&pp=47.616295,-122.3556;22&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3  %>
-    <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/11?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};66&mapLayer=Basemap,Buildings&key=ApogY6jXlBSF8JEGgDieH6Jz250ZQovJqmjtNVy1e4GdsvSTrnsnOhqjNiB2N-v3"%>
+    <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/11?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};66&mapLayer=Basemap,Buildings&key=#{ENV['bing_api_key']}"%> 
     </div>
     
     <p>
