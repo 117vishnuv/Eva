@@ -2,8 +2,8 @@ Geocoder.configure(
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
-  lookup: :bing,
-  api_key: ENV['bing_api_key']
+  # lookup: :bing,
+  # api_key: ENV['bing_api_key']
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
   # language: :en,              # ISO-639 language code
   # use_https: false,           # use HTTPS for lookup requests? (if supported)

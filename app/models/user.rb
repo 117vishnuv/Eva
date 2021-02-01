@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  # has_many :events, class_name: "Event"
+  has_many :events
+
+
   # enables a user to follow many other users 
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
   #user has many followees through the followed_users established in the line above.

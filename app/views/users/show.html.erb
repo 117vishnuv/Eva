@@ -1,28 +1,38 @@
-<h1><%=@user.name%>'s profile</h1>
-<%= image_tag @user.profile_image_url.to_s%>
-<section id="all-links">
-    <% if @user.id == current_user.id %>
-        <%= button_to "Logout", '/logout', method: :post %>
-    <% elsif current_user.followees.include?(@user) %>
-        <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
-    <% else %>
-        <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
-    <% end%>
-    <%# <%= link_to 'Followers', user_followers_path(@user) %> 
-    <%# <%= link_to 'Following', user_followees_path(@user) %> 
-    <br>
-</section>
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+          <i class="mdi mdi-account-multiple"></i>
+        </span> Users
+       </h3>
+    </div>
+      <h1><%=@user.name%>'s profile</h1>
+      <%= image_tag @user.profile_image_url.to_s%>
+      <section id="all-links">
+          <% if @user.id == current_user.id %>
+              <%= button_to "Logout", '/logout', method: :post %>
+          <% elsif current_user.followees.include?(@user) %>
+              <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
+          <% else %>
+              <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
+          <% end%>
+          <%# <%= link_to 'Followers', user_followers_path(@user) %> 
+          <%# <%= link_to 'Following', user_followees_path(@user) %> 
+          <br>
+      </section>
 
-<p>
- <h3>Followers</h3>
- <% @followers.each do |f| %>
-   <%= f.name %>
- <% end %>
-</p>
+      <p>
+       <h3>Followers</h3>
+       <% @followers.each do |f| %>
+         <%= f.name %>
+       <% end %>
+      </p>
 
-<p>
- <h3>Following</h3>
- <% @followees.each do |f| %>
-   <%= f.name %>
- <% end %>
-</p>
+      <p>
+       <h3>Following</h3>
+       <% @followees.each do |f| %>
+         <%= f.name %>
+       <% end %>
+      </p>
+    </div>  

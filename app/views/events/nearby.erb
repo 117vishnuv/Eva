@@ -1,0 +1,60 @@
+<p>
+      <strong>Name:</strong>
+      <%= @event.name %>
+    </p>
+
+    <p>
+     <strong>Body:</strong>
+     <%= @event.body %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= @event.date %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= @event.location %>
+    </p>
+
+    <p>
+      <strong>Latitude:</strong>
+      <%= @event.latitude %>
+    </p>
+
+    <p>
+      <strong>Longitude:</strong>
+      <%= @event.longitude %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @event.status %>
+    </p>
+    <p>
+      <strong>user:</strong>
+      <%= @event.user.id %>
+    </p>
+     
+     
+    <div>
+     <%= image_tag "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/#{@event.latitude},#{@event.longitude}/11?mapSize=500,500&pp=#{@event.latitude},#{@event.longitude};66&mapLayer=Basemap,Buildings&key=#{ENV['bing_api_key']}"%> 
+    </div>
+    
+    <p>
+    <ul>
+    <li><strong>Nearby Events</strong></li>
+      <% for event in @event.nearbys(31) %>
+       <li><%= link_to event.name, event %>, <%= event.location%> (<%= event.distance.round(2)*1.60934 %> km)</li>
+      <% end %>
+    </ul>
+    
+    </p>
+   
+
+
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+
+</div>
