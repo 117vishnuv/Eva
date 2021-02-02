@@ -32,12 +32,13 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                  <p class="mb-1 text-black"><%= current_user.email.to_s.chomp('@gmail.com')%></p>
+                  <p class="mb-1 text-black"><%= current_user.name.capitalize %></p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                <%# <%= link_to 'Profile' , user_path(current_user) , class"dropdown-item"%> 
+                <%# <a class="dropdown-item" href="#"> %>
+                  <i class="mdi mdi-cached mr-2 text-success dropdown-item"> <%= link_to 'Profile' , user_path(current_user), class:"dropdown-item" %></i>
                 <div class="dropdown-divider"></div>
                 <%# <a class="dropdown-item" href="#"> %>
                 <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">
@@ -155,4 +156,5 @@
             <span class="mdi mdi-menu"></span>
           </button>
         </div>
+       
       </nav>

@@ -12,12 +12,15 @@
  *
  *= require bootstrap
  *= require materialdesignicons
- *= require "vendor.bundle.base"
- *= require "style"
- *= require "vendor.bundle.base"
+ *= require "vendor.bundle.base.css"
+ *= require "style.css"
+ *= require "vendor.bundle.base.css"
+ *= require_toastr
  *= require_tree 
  *= require_self
  */
+ @import "toastr/toastr";
+
  .form-check .form-check-label input[type="checkbox"] + .input-helper:before {
     content: "";
     width: 18px;
