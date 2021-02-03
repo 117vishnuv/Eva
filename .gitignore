@@ -43,3 +43,6 @@ yarn-debug.log*
 
 #ignore bing key
 .env
+
+#ignore cloudinary api keys
+/config/cloudinary.yml

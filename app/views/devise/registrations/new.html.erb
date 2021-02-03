@@ -23,6 +23,36 @@
                   <%# <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"> %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: 'email address' %>
               </div>
+              
+
+
+
+
+           <%# In progress %>
+
+              <div class='form-group'>
+                <%= f.label :image, 'image' %>
+                <%# <%= f.hidden_field :image_cache %> 
+                <%= f.file_field :profile_image ,class: 'form-control' %>
+              </div>
+              <%#  <div class='form-group'>
+                <label for="user_image">image</label>
+                <input class="form-control" type="file" name="user[profile_image]" id="user_profile_image" />
+              </div>
+              <div class="form-group">
+                 <label for="user_image">image</label>
+                 <input  class="file-upload-default" type="file" name="user[profile_image]" id="user_profile_image"/>
+                 <div class="input-group col-xs-12">
+                   
+                   <span class="input-group-append">
+                     <label class="file-upload-browse btn btn-gradient-primary" >Upload <input class="form-control" type="file" name="user[profile_image]" id="user_profile_image" hidden /></label>
+                   </span>
+                   <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                 </div>
+              </div> %>
+
+
+
               <div class="form-group">
                         <%# <label for="exampleInputPassword4">Password</label> %>
                 <%= f.label :password do %>

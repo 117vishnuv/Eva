@@ -95,7 +95,8 @@
                   <tr>
                     <td>
                       <%# <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image"> %>
-                      <%= image_tag ("faces/face1.jpg"), class:"mr-2", alt:"image" %>
+                      <%# <%= image_tag ("faces/face1.jpg"), class:"mr-2", alt:"image" %> 
+                      <%= image_tag(event.user.profile_image_url(:thumbnail), :alt =>"",class:"mr-2") %>
                       <%# <%= event.user.name %> 
                        <%= link_to  event.user.name, user_path(event.user) %>
                     </td>

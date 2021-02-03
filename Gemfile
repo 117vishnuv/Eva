@@ -34,9 +34,12 @@ gem 'devise'
 #image uploading
 gem 'carrierwave'
 
+#cloud storage for images
+gem 'cloudinary'
+
 #image resizing
-gem "rmagick"
-gem "mini_magick"
+# gem "rmagick"
+# gem "mini_magick"
 
 #iconpack
 gem 'material_design_icons', '~> 4.1', '>= 4.1.95'
