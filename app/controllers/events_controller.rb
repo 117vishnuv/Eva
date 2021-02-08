@@ -29,6 +29,9 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     respond_to do |format|
       if @event.save
+        current_user.followers.each do |user|
+          Notification.create(recipient: user, actor: current_user, action:'Posted', notifiable: @event)
+        end
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

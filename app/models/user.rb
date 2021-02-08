@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :notifiactions, foreign_key: :recipient_id
+
   # has_many :events, class_name: "Event"
   has_many :events
 

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
     def index
-        @events = Event.all
+        @events = Event.search(params)
     end
 end
