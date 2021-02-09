@@ -18,6 +18,8 @@ class UsersController < ApplicationController
       # GET /users.json
       def index
         @users = User.all
+        @notifications = Notification.where(recipient: current_user).unread
+       
       end
     
       # GET /users/1
@@ -26,6 +28,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @followers = @user.followers
         @followees = @user.followees
+        @notifications = Notification.where(recipient: current_user).unread
       end
     
       # GET /users/new

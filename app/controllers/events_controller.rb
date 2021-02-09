@@ -6,17 +6,19 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @notifications = Notification.where(recipient: current_user).unread
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    
+    @notifications = Notification.where(recipient: current_user).unread
   end
 
   # GET /events/new
   def new
     @event = Event.new
+    @notifications = Notification.where(recipient: current_user).unread
   end
 
   # GET /events/1/edit
@@ -77,6 +79,7 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+      @notifications = Notification.where(recipient: current_user).unread
 
     end
 

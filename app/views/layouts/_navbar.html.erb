@@ -98,7 +98,14 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-         <a  class="nav-link count-indicator dropdown-toggle" href="/notifications"><i class="mdi mdi-bell-outline"></i> <span class="count-symbol bg-danger"></span></a>
+        <a  class="nav-link count-indicator dropdown-toggle" href="/notifications">
+        <i class="mdi mdi-bell-outline">
+          <% if @notifications.unread.count > 0 %>
+             <sup>(<%= @notifications.count%>)</sup> 
+             <span class="count-symbol bg-danger"></span>
+            <% end %> 
+          </i> 
+        </a>
       </li>
       <%# <li class="nav-item dropdown" data-behaviour ='notifications'>
         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="/notifications" data-toggle="dropdown">

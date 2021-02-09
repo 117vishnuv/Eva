@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       # post :mark_as_read
     # end
   # end
-
+  post 'mark_as_read', to:"notifications#mark_as_read", as: "mark_as_read"
   get '/notifications' , to: "notifications#index", as: "notifications"
   post '/users/:id/follow',   to: "users#follow",   as: "follow_user"
   post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"

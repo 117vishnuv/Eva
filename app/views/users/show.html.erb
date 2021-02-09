@@ -9,14 +9,12 @@
        <!-- Breadcrumb -->
        <nav aria-label="breadcrumb" class="main-breadcrumb">
          <ol class="breadcrumb">
-           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-           <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-           <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+           <li class="breadcrumb-item"><%= link_to "users", users_path %></li>
+           <li class="breadcrumb-item active" aria-current="page">user Profile</li>
          </ol>
        </nav>
        <!-- /Breadcrumb -->
     </div>
-    
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
         <div class="card">
@@ -144,7 +142,7 @@
                       <td class="py-1">
                         <%# <img src="images/faces-clipart/pic-1.png" alt="image" /> %>
                         <%# <%= image_tag ("faces-clipart/pic-1.png"), class:"mr-2", alt:"image" %> 
-                        <%= image_tag(f.profile_image_url(:thumbnail), :alt =>"Profile_image",class:"mr-2") %>
+                        <%= image_tag(f.profile_image_url(:thumbnail), :alt =>"",class:"mr-2") %>
                       </td>
                       <td><%= f.name %></td>
                       <td>
@@ -206,48 +204,3 @@
       </div>
     </div>
    </div>
-  
-  
-  
-  
-  
-  
-      <h1><%=@user.name%>'s profile</h1>
-      <%= image_tag @user.profile_image_url.to_s%>
-      <section id="all-links">
-          <% if @user.id == current_user.id %>
-              <%= button_to "Logout", '/logout', method: :post %>
-          <% elsif current_user.followees.include?(@user) %>
-              <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
-          <% else %>
-              <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
-          <% end%>
-          <%# <%= link_to 'Followers', user_followers_path(@user) %> 
-          <%# <%= link_to 'Following', user_followees_path(@user) %> 
-          <br>
-      </section>
-
-      <p>
-       <h3>Followers</h3>
-       <% @followers.each do |f| %>
-         <%= f.name %>
-       <% end %>
-      </p>
-
-      <p>
-       <h3>Following</h3>
-       <% @followees.each do |f| %>
-         <%= f.name %>
-       <% end %>
-      </p>
-  
-  
-
-
-
-
-
-
-
-
-  
