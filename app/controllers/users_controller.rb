@@ -1,7 +1,17 @@
 class UsersController < ApplicationController
-     before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
-     
-     def follow
+    before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :unfollow], except: [:message]
+      def message
+        @user = User.find(params[:id])
+        @followers = @user.followers
+        @followees = @user.followees
+        @notifications = Notification.where(recipient: current_user).unread
+        @sender =current_user
+        @receiver = @user
+        @messages = Message.where(sender_id: @sender.id, receiver_id: @receiver.id).or(Message.where(sender_id: @receiver.id, receiver_id: @sender.id))
+        @chat_id = [@sender.id, @receiver.id].sort.join("") #generates a unique identifier for a pair of user 
+
+      end
+      def follow
         @user = User.find(params[:id])
         current_user.followees << @user
         redirect_back(fallback_location: user_path(@user))
@@ -19,7 +29,6 @@ class UsersController < ApplicationController
       def index
         @users = User.all
         @notifications = Notification.where(recipient: current_user).unread
-       
       end
     
       # GET /users/1
@@ -29,6 +38,11 @@ class UsersController < ApplicationController
         @followers = @user.followers
         @followees = @user.followees
         @notifications = Notification.where(recipient: current_user).unread
+        @sender =current_user
+        @receiver = @user
+        @messages = Message.where(sender_id: @sender.id, receiver_id: @receiver.id).or(Message.where(sender_id: @receiver.id, receiver_id: @sender.id))
+        @chat_id = [@sender.id, @receiver.id].sort.join("") #generates a unique identifier for a pair of user 
+
       end
     
       # GET /users/new
@@ -88,6 +102,6 @@ class UsersController < ApplicationController
     
         # Only allow a list of trusted parameters through.
         def user_params
-          params.require(:user).permit(:name, :email, :profile_image)
+          params.require(:user).permit(:name, :email, :profile_image, :reciever_id)
         end
 end

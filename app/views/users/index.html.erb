@@ -5,15 +5,16 @@
         <span class="page-title-icon bg-gradient-primary text-white mr-2">
           <i class="mdi mdi-account-multiple"></i>
         </span> Users
-       </h3>
+      </h3>
     </div>
     <% @users.each do |user|%>
       <% if user.id != current_user.id %>
         <%= user.name%> 
         <%= link_to 'show', user_path(user)%>
+        <%= link_to 'chat', message_user_path(user) %>
         <br/>
       <% end %>  
     <% end %>
-  </div>
+    
 
 

@@ -1,5 +1,11 @@
 class User < ApplicationRecord
-
+  #messaging
+  has_many :messagee, foreign_key: :receiver_id, class_name: 'Message'  
+  has_many :senders, through: :messagee
+  has_many :messaged, foreign_key: :sender_id, class_name: 'Message'
+  has_many :receivers, through: :messaged
+  
+  #notifications
   has_many :notifiactions, foreign_key: :recipient_id
 
   # has_many :events, class_name: "Event"
@@ -22,6 +28,5 @@ class User < ApplicationRecord
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
 end

@@ -19,6 +19,7 @@
  *= require_tree 
  *= require_self
  */
+ @import "users.scss";
  @import "toastr/toastr";
 
  .form-check .form-check-label input[type="checkbox"] + .input-helper:before {

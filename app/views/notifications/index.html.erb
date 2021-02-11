@@ -12,9 +12,9 @@
     <div class="row">
       <div class="col-lg-12 stretch-card">
         <div class="card">
-           <div class="card-body">
-           <% if @notifications.any? %>
-           <%# <h6 class='ml-auto'>Mark all as read.</h6> %>
+          <div class="card-body">
+            <% if @notifications.any? %>
+            <%# <h6 class='ml-auto'>Mark all as read.</h6> %>
               <span class=" purchase-popup float-right" style = "margin:0px;">
                 <%= button_to 'Mark all as read', {:controller => "notifications", :action => "mark_as_read", :read => "true"}, :method=>:post ,class: "btn btn-primary btn-sm float-right ml-auto" %>
               </span>
@@ -24,32 +24,32 @@
                   <% if !notification.read_at %>
                     <tr class="table-info">
                       <td>
-                         <h4> <%=link_to  notification.actor.name.capitalize, notification.actor %>
-                         Posted an event 
-                         <%= link_to notification.notifiable.name.capitalize, notification.notifiable%>
-                         <sub>~(<%= notification.created_at.strftime("%d-%m-%y")%>)</sub> 
-                         </h4>
-                       </td>
+                        <h4> <%=link_to  notification.actor.name.capitalize, notification.actor %>
+                        Posted an event 
+                        <%= link_to notification.notifiable.name.capitalize, notification.notifiable%>
+                        <sub>~(<%= notification.created_at.strftime("%d-%m-%y")%>)</sub> 
+                        </h4>
+                      </td>
                     </tr>
                   <% else %>
                     <tr class="table-secondary">
                       <td>
-                         <h4> <%=link_to  notification.actor.name.capitalize, notification.actor %>
-                         Posted an event 
-                         <%= link_to notification.notifiable.name.capitalize, notification.notifiable%>
-                         <sub>~(<%= notification.created_at.strftime("%d-%m-%y")%>)</sub> 
-                         </h4>
-                       </td>
+                        <h4> <%=link_to  notification.actor.name.capitalize, notification.actor %>
+                        Posted an event 
+                        <%= link_to notification.notifiable.name.capitalize, notification.notifiable%>
+                        <sub>~(<%= notification.created_at.strftime("%d-%m-%y")%>)</sub> 
+                        </h4>
+                      </td>
                     </tr>
                   <% end %>  
                 <% end %>  
               </tbody>
-             </table>
+            </table>
             <% else %>
             <p>No notifications</p> 
             <% end %>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
